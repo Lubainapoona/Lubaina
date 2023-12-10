@@ -2,30 +2,31 @@ Imports System
 
 Module Program
     Sub Main()
-        Dim string1, string2, string3, string4 As String
-        Dim i, count As Integer
-        Dim char1, char2, char3 As Char
+        Dim string1, afterbad, beforenot, string3 As String
+        Dim char1, char2 As Char
+        Dim notindex, badindex As Integer
+        string3 = ""
+
+        string1 = ""
+        afterbad = ""
+        beforenot = ""
         char1 = ""
         char2 = ""
-        char3 = ""
-        string1 = ""
-        string2 = "ly"
-        string3 = "ing"
-        string4 = ""
-        i = 0
-        count = 0
-        Console.Write("enter word: ")
+        notindex = 0
+        badindex = 0
+        Console.Write("enter sentence: ")
         string1 = Console.ReadLine
-        If Len(string1) > 2 And Right(string1, 3) = "ing" Then
-            string4 = string1 & string2
-        ElseIf Len(string1) > 2 Then
-            string4 = string1 & string3
-        Else
-            string4 = string1
-        End If
-        Console.WriteLine(string4)
-        Console.ReadKey()
+        If InStr(string1, "Not") < InStr(string1, "bad") Then
+            notindex = InStr(string1, "Not")
+            badindex = InStr(string1, "bad")
 
+            beforenot = Left(string1, notindex - 1)
+            afterbad = Mid(string1, badindex + 3)
+
+            string3 = beforenot & "good" & afterbad
+        End If
+        Console.WriteLine(string3)
+            Console.ReadKey()
 
 
     End Sub

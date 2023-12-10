@@ -1,19 +1,31 @@
 Imports System
-Imports System.Transactions
 
 Module Program
     Sub Main()
-        Dim a, b, result As String
-        a = ""
-        b = ""
-        result = ""
-        Console.Write(" enter the first string (a) :")
-        a = Console.ReadLine
-        Console.Write(" enter the first string (b) :")
-        b = Console.ReadLine
-        result = Mid(b, 1, 2) & Mid(a, 3) & " " & Mid(a, 1, 2) & Mid(b, 3)
-        Console.WriteLine("Result: " & result)
+        Dim string1, string2, string3, string4 As String
+        Dim i, count As Integer
+        Dim char1, char2, char3 As Char
+        char1 = ""
+        char2 = ""
+        char3 = ""
+        string1 = ""
+        string2 = "ly"
+        string3 = "ing"
+        string4 = ""
+        i = 0
+        count = 0
+        Console.Write("enter word: ")
+        string1 = Console.ReadLine
+        If Len(string1) > 2 And Right(string1, 3) = "ing" Then
+            string4 = string1 & string2
+        ElseIf Len(string1) > 2 Then
+            string4 = string1 & string3
+        Else
+            string4 = string1
+        End If
+        Console.WriteLine(string4)
         Console.ReadKey()
+
 
 
     End Sub

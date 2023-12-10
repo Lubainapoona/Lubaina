@@ -1,34 +1,18 @@
 Imports System
+Imports System.Transactions
 
 Module Program
     Sub Main()
-        Dim string1, string2 As String
-        Dim char1, char2, char3 As Char
-        Dim i As Integer
-        i = 0
-        string1 = ""
-        string2 = ""
-        char1 = ""
-        char2 = ""
-        char3 = ""
-
-        Console.Write("enter string: ")
-        string1 = Console.ReadLine
-
-        char1 = Left(string1, 1)
-        string2 = string2 & char1
-
-        For i = 2 To Len(string1)
-            char2 = Mid(string1, i, 1)
-            If char2 = char1 Then
-                char2 = "*"
-                string2 = string2 & char2
-            Else : char3 = char2
-                string2 = string2 & char3
-            End If
-        Next
-
-        Console.WriteLine(string2)
+        Dim a, b, result As String
+        a = ""
+        b = ""
+        result = ""
+        Console.Write(" enter the first string (a) :")
+        a = Console.ReadLine
+        Console.Write(" enter the first string (b) :")
+        b = Console.ReadLine
+        result = Mid(b, 1, 2) & Mid(a, 3) & " " & Mid(a, 1, 2) & Mid(b, 3)
+        Console.WriteLine("Result: " & result)
         Console.ReadKey()
 
 

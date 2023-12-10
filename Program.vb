@@ -2,36 +2,47 @@ Imports System
 
 Module Program
     Sub Main()
-        Dim string1 As String
-        Dim letter1 As Char
-        Dim i, j As Integer
-        Dim count As Integer
-        Dim maxCount As Integer
-        Dim mostFrequentChar As Char
-
-        count = 0
-        maxCount = 0
-        string1 = ""
-        Console.Write("Enter string: ")
-        string1 = Console.ReadLine
-        For i = 1 To Len(string1)
-            letter1 = Mid(string1, i, 1)
-            count = 0
-            For j = 1 To Len(string1)
-                If Mid(string1, j, 1) = letter1 Then
-                    count = count + 1
-                End If
-                If count > maxCount Then
-                    maxCount = count
-                End If
-            Next j
-            If count > maxCount Then
-                maxCount = count
-                mostFrequentChar = letter1
+        Dim str1, str2 As String
+        Dim chr1, chr2, chr3 As Char
+        Dim i, counteralphabets, countentered, countdigits, countother As Integer
+        Dim alphabets As String
+        Dim alphabet As Boolean
+        alphabet = True
+        str1 = ""
+        str2 = ""
+        chr1 = ""
+        chr2 = ""
+        chr3 = ""
+        i = 0
+        counteralphabets = 0
+        countentered = 0
+        countdigits = 0
+        countother = 0
+        alphabets = "abcdefghijklmnopqrstuvwxyz"
+        Console.Write("enter string to be processed: ")
+        str1 = Console.ReadLine
+        Console.Write("enter character to be counted:")
+        chr1 = Console.ReadLine
+        LCase(str1)
+        For i = 1 To Len(str1)
+            chr2 = Mid(str1, i, 1)
+            If Asc(chr2) > 47 And Asc(chr2) < 59 Then
+                countdigits = countdigits + 1
+            ElseIf asc(chr2) > 96 And Asc(chr2) < 123 Then
+                counteralphabets = counteralphabets + 1
+            Else
+                countother = countother + 1
             End If
-        Next i
-        Console.WriteLine("The character that appears most frequently is: " & mostFrequentChar)
+            If chr2 = chr1 Then
+                countentered = countentered + 1
+            End If
+        Next
+        Console.WriteLine("character was entered: " & countentered & "times")
+        Console.WriteLine("alphabets are:" & counteralphabets)
+        Console.WriteLine("digits are:" & countdigits)
+        Console.WriteLine("other keys are: " & countother)
         Console.ReadKey()
+
 
 
     End Sub

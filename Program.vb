@@ -2,32 +2,36 @@ Imports System
 
 Module Program
     Sub Main()
-        Dim string1, string2 As String
-        Dim char1, char2, char3 As Char
-        Dim i As Integer
-        string2 = ""
-        string1 = ""
-        char1 = ""
-        char2 = ""
-        char3 = ""
-        i = 0
-        Console.Write("enter string to be processed: ")
-        string1 = Console.ReadLine
-        Console.Write("enter character to select in the string: ")
-        char1 = Console.ReadLine
-        Console.Write("enter character to replace in the string: ")
-        char2 = Console.ReadLine
-        For i = 1 To Len(string1)
-            char3 = Mid(string1, i, 1)
-            If char3 = char1 Then
-                string2 = string2 + char2
-            Else
-                string2 = string2 + char3
-            End If
-        Next
-        Console.WriteLine("processed string after replacement is: " & string2)
-        Console.ReadKey()
+        Dim string1 As String
+        Dim letter1 As Char
+        Dim i, j As Integer
+        Dim count As Integer
+        Dim maxCount As Integer
+        Dim mostFrequentChar As Char
 
+        count = 0
+        maxCount = 0
+        string1 = ""
+        Console.Write("Enter string: ")
+        string1 = Console.ReadLine
+        For i = 1 To Len(string1)
+            letter1 = Mid(string1, i, 1)
+            count = 0
+            For j = 1 To Len(string1)
+                If Mid(string1, j, 1) = letter1 Then
+                    count = count + 1
+                End If
+                If count > maxCount Then
+                    maxCount = count
+                End If
+            Next j
+            If count > maxCount Then
+                maxCount = count
+                mostFrequentChar = letter1
+            End If
+        Next i
+        Console.WriteLine("The character that appears most frequently is: " & mostFrequentChar)
+        Console.ReadKey()
 
 
     End Sub
